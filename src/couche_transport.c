@@ -26,3 +26,18 @@ int dans_fenetre(unsigned int inf, unsigned int pointeur, int taille) {
         /* pointeur <= sup < inf */
         ( sup < inf && pointeur <= sup);
 }
+
+/* Mes fonctions */
+
+/*--------------------------------------*
+* Fonction somme de contrôle            *
+*--------------------------------------*/
+
+uint8_t somme_controle(paquet_t * paquet){
+    uint8_t somme_ctrl = paquet->type ^ paquet->num_seq ^ paquet->lg_info;
+    for (int i = 0; i < paquet->lg_info; i++){
+        somme_ctrl ^= paquet->info[i];
+    }
+    return somme_ctrl;
+     
+}

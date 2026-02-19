@@ -42,4 +42,11 @@ typedef struct paquet_s {
 *--------------------------------------*/
 int dans_fenetre(unsigned int inf, unsigned int pointeur, int taille);
 
+/*--------------------------------------*
+* Fonction somme de contrôle            *
+*--------------------------------------*/
+
+uint8_t somme_controle(paquet_t paquet);
+
+
 #endif
