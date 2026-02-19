@@ -18,7 +18,7 @@
 int main (int argc, char* argv[]){
     /* Données */
     unsigned char message[MAX_INFO]; //Message de l'application
-    unsigned int taille_msg; //taille du message
+    int taille_msg; //taille du message
     paquet_t paquet; //Paquet a envoyer par le protocole
     paquet_t pack; //Paquet d'acquittements
     
