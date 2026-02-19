@@ -48,7 +48,7 @@ int dans_fenetre(unsigned int inf, unsigned int pointeur, int taille);
 * Fonction somme de contrôle            *
 *--------------------------------------*/
 
-uint8_t generer_somme_controle(paquet_t paquet);
+uint8_t generer_somme_controle(paquet_t * paquet);
 
 /*--------------------------------------*
 * Fonction construction de paquet       *

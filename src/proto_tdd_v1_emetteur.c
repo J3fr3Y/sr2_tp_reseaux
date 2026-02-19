@@ -25,7 +25,7 @@ int main (int argc, char* argv[]){
     init_reseau(EMISSION);
 
     printf("[TRP] Initialisation reseau : OK.\n");
-    printf("[TRP] Debut execution protocole transport V1.\n");
+    printf("[TRP] Debut execution protocole transport V1 côté émetteur.\n");
 
     /* On récupere le mmessage de la couche application*/
     de_application(message,&taille_msg);
@@ -50,19 +50,13 @@ int main (int argc, char* argv[]){
             printf("Paquet envoyé\n");
             /* réception dácquittemens ACK/NACK */
             de_reseau(&pack);
-            printf("Acquittement reçu\n");
-        } while(pack.type != NACK);
+            printf("Acquittement reçu %d\n",pack.type);
+        } while(pack.type == NACK);
 
         /* On lit les données suivantes */
         de_application(message,&taille_msg);
 
         printf("[TRP] Fin execution protocole transfert de donnees V1 (TDD).\n");
-        return 0;
     }
-
-    
-
-
-
-
+    return 0;
 }
