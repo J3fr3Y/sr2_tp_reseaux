@@ -3,14 +3,14 @@
 
 # Fichiers pour application
 #---------------------------
-FICHIER_IN fichiers/in.txt
-FICHIER_OUT fichiers/out.txt
+FICHIER_IN fichiers/lion.jpg
+FICHIER_OUT fichiers/broken_lion.jpg
 
 # Initialisation réseau
 #------------------------
 # Emetteur
 PROBA_PERTE_E 0.0
-PROBA_ERREUR_E 0.0
+PROBA_ERREUR_E 0.05
 # Recepteur
 PROBA_PERTE_R 0.0
 PROBA_ERREUR_R 0.0
