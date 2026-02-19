@@ -33,11 +33,28 @@ int dans_fenetre(unsigned int inf, unsigned int pointeur, int taille) {
 * Fonction somme de contrôle            *
 *--------------------------------------*/
 
-uint8_t somme_controle(paquet_t * paquet){
+uint8_t generer_somme_controle(paquet_t * paquet){
     uint8_t somme_ctrl = paquet->type ^ paquet->num_seq ^ paquet->lg_info;
+
     for (int i = 0; i < paquet->lg_info; i++){
         somme_ctrl ^= paquet->info[i];
     }
-    return somme_ctrl;
-     
+
+    return somme_ctrl;    
+}
+
+/*--------------------------------------*
+* Fonction construction de paquet       *
+*--------------------------------------*/
+
+void construire_paquet(paquet_t * paquet, uint8_t type, uint8_t taille_msg, unsigned char * message, uint8_t num_seq){
+    paquet->type = type;
+    paquet->lg_info = taille_msg;
+    paquet->num_seq = num_seq;
+
+    for(int i = 0; i < taille_msg; i++){
+        paquet->info[i] = message[i];
+    }
+
+    paquet->somme_ctrl = generer_somme_controle(paquet);
 }
