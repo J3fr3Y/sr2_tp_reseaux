@@ -58,3 +58,12 @@ void construire_paquet(paquet_t * paquet, uint8_t type, uint8_t taille_msg, unsi
 
     paquet->somme_ctrl = generer_somme_controle(paquet);
 }
+
+/*--------------------------------------*
+* Fonction incrémentation num seq       *
+*--------------------------------------*/
+
+int inc(int num, int modulo){
+    num += (num % modulo);
+    return num;
+}
