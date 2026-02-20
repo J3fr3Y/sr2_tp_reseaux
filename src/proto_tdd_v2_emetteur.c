@@ -42,14 +42,14 @@ int main (int argc, char* argv[]){
         */
        printf("Contructions du paquet...\n");
        construire_paquet(&paquet,DATA,taille_msg,message,num_seq);
-       printf("Paquet construit");
+       printf("Paquet construit\n");
 
        /* Tant qu'il y a un timeout rentrasment le paquet*/
        do {
             printf("On envoie le paquet\n");
             vers_reseau(&paquet);
             printf("Paquet envoyé!\n");
-            printf("Timer démarre");
+            printf("Timer démarre\n");
             depart_temporisateur(MAX_TIME);
             /* Récupère le paquet d'ack*/
             //de_reseau(&pack);
@@ -61,7 +61,6 @@ int main (int argc, char* argv[]){
         de_reseau(&pack);
         arret_temporisateur();
         num_seq = inc(num_seq,2);
-
         /* On preleve le prochain paquet */
         de_application(message,&taille_msg);
         printf("[TRP] Fin execution protocole transfert de donnees V2 (TDD).\n");

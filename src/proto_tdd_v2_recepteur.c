@@ -31,8 +31,8 @@ int main (int argc, char* argv[]){
     /* Tant qu'on reçoit des paquets*/
     while(!fin){
         /* On récupere le paquet de la couche réseau */
-        printf("Réception d'un paquet\n");
         de_reseau(&paquet_recu);
+        printf("Réception d'un paquet\n");
         /* On verifie qu'il n'y a pas d'erreur */
         printf("Verification de somme de controle...\n");
         if(generer_somme_controle(&paquet_recu) == paquet_recu.somme_ctrl){
